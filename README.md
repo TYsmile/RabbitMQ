@@ -108,6 +108,8 @@ RabbitMQ安装与使用：
        
        rabbitmqctl set_permissions -p vhostpath usernmae ：设置用户权限
        
+              sudo rabbitmqctl set_permissions -p / admin '.*' '.*' '.*'   给admin用户设置所有权限
+       
        rabbitmqctl add_vhost vhostpath：创建虚拟主机
        
        rabbitmqctl list_vhosts：列出所有虚拟主机
