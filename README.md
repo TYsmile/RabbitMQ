@@ -134,5 +134,17 @@ RabbitMQ安装与使用：
        
        rabbitmqctl rename_cluster_node oldnode1 newnode1 [oldnode2] [newnode2]...  : 修改节点名称
        
+入门 -- 消息生成与消费
+
+       ConnectionFactory：获取连接工厂
+       
+       Connection：一个连接
+       
+       Channel：数据通信信道，可发送和接收消息
+       
+       Queue：具体的消息存储队列
+       
+       Producer & Consumer：生产和消费者
+       
        
        
