@@ -45,3 +45,94 @@ AMQP定义：是具有现代特特征的二进制协议。是一个提供统一�
 
 RabbitMQ整体架构 ： app publish --> Exchange -->  queue  -->  app customer
 
+RabbitMQ安装与使用： 
+       
+       官网： http://www.rabbitmq.com/
+       
+       提前准备：安装linux必要依赖包
+       
+       下载rabbitMQ必须安装包
+       
+       举例 ： centos 系统
+       
+       准备：
+       yum install 
+       
+       build-essential openssl openssl-devel unixODBC unixODBC-devel 
+       
+       make gcc gcc-c++ kernel-devel m4 ncurses-devel tk tc xz
+
+       下载：
+       wget www.rabbitmq.com/releases/erlang/erlang-18.3-1.el7.centos.x86_64.rpm
+       
+       wget http://repo.iotti.biz/CentOS/7/x86_64/socat-1.7.3.2-5.el7.lux.x86_64.rpm
+       
+       wget www.rabbitmq.com/releases/rabbitmq-server/v3.6.5/rabbitmq-server-3.6.5-1.noarch.rpm
+
+       配置文件：
+       vim /usr/lib/rabbitmq/lib/rabbitmq_server-3.6.5/ebin/rabbit.app
+       
+       比如修改密码、配置等等，例如：loopback_users 中的 <<"guest">>,只保留guest
+       
+       服务启动和停止：
+       
+       启动 rabbitmq-server start &
+       
+       停止 rabbitmqctl app_stop
+
+       管理插件：rabbitmq-plugins enable rabbitmq_management
+       
+       访问地址：http://192.168.11.76:15672/
+      
+
+
+命令行与管控台 -基础操作：
+
+       ranbbitmqctl stop_app:关闭应用
+       
+       rabbitmqctl start_app：启动应用
+       
+       rabbitmqctl status ：节点状态
+       
+       rabbitmqctl add_user username password ：添加用户
+       
+       rabbitmqctl list_users ：列出所有用户
+       
+       rabbitmqctl delete_user username :删除用户
+       
+       rabbitmqctl clear_permissions -p vhostpath username ：清除用户权限
+       
+       rabbitmqctl list_user_permissions username ：列出用户权限
+       
+       rabbitmqctl change_password username newpassword：修改密码
+       
+       rabbitmqctl set_permissions -p vhostpath usernmae ：设置用户权限
+       
+       rabbitmqctl add_vhost vhostpath：创建虚拟主机
+       
+       rabbitmqctl list_vhosts：列出所有虚拟主机
+       
+       rabbitmqctl list_permissions -p vhostpath：列出虚拟主机上所有权限
+       
+       rabbitmqctl delete_vhost vhostpath：删除虚拟主机
+       
+       rabbitmqctl list_queues: 查看所有队列信息
+       
+       rabbitmqctl -p vhostpath purge_queue blue：清除队列里的消息
+       
+ 命令行与管控台 -- 高级操作
+ 
+       rabbitmqctl reset：移除所有数据，要在rabbitmqctl stop_app之后使用
+       
+       rabbitmqctl join_cluster <clusternode> [--ram] :组成集群命令
+       
+       rabbitmqctl cluster_status : 查看集群状态
+       
+       rabbitmqctl change_cluster_node_type disc | ram ：修改集群节点的存储形式
+       
+       rabbitmqctl forget_cluster_node [--offline] ：忘记节点（摘除节点）
+       
+       rabbitmqctl rename_cluster_node oldnode1 newnode1 [oldnode2] [newnode2]...  : 修改节点名称
+       
+       
+       
