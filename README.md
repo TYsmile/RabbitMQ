@@ -1,5 +1,5 @@
 # RabbitMQ
-RabbitMQ 学习笔记
+RabbitMQ 学习笔记 
 
 初识RabbitMQ：RanbbitMQ是一个开源的消息代理和队列服务器，用来通过普通协议在完全不同的应用之间共享数据，RabbitMQ是使用Erlang语言来编写的，并且RabbitMQ是基于AMQP协议的
 
